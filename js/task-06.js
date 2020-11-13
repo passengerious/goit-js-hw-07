@@ -24,23 +24,19 @@
 }
  */
 
-const input = document.querySelector("#validation-input");
+const inputEl = document.querySelector('#validation-input');
+inputEl.addEventListener('input', inputBorder);
 
-const inputBorder = function(event) {
+function inputBorder(event) {
 
-    input.classList.add('invalid');
-
-    switch (event.currentTarget.value.length) {
-        case Number(event.target.dataset.length):
-            input.classList.replace("invalid", "valid");
-            break;
-        case 0:
-            input.classList.remove("invalid");
-            break;
-
-    }
-
-
+  if (this.value.length == inputEl.dataset.length) {
+    inputEl.classList.remove('invalid');
+    inputEl.classList.add('valid');
+  } else {
+    inputEl.classList.remove('valid');
+    inputEl.classList.add('invalid');
+  }
 }
 
-input.addEventListener('input', inputBorder);
+
+
