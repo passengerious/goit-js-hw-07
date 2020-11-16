@@ -29,7 +29,7 @@ inputEl.addEventListener('input', inputBorder);
 
 function inputBorder(event) {
 
-  if (this.value.length == inputEl.dataset.length) {
+  if (this.value.length === Number(inputEl.dataset.length)) {
     inputEl.classList.remove('invalid');
     inputEl.classList.add('valid');
   } else {
